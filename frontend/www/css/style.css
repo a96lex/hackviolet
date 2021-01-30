@@ -1,3 +1,4 @@
+/*------------ estilos de texto ------------*/
 h1 {
   font-family: Work Sans;
   font-style: normal;
@@ -7,6 +8,23 @@ h1 {
   text-align: center;
   padding-top: 10vh;
 }
+h2 {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 129.3%;
+}
+
+p {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/*------------ menú ------------*/
 header {
   padding: 2vh;
 }
@@ -29,9 +47,7 @@ header {
   display: flex;
   flex-direction: row;
   width: 33vw;
-  margin-top: 5vh;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 5vh auto 9vh auto;
 }
 input[type="text"] {
   float: left;
@@ -52,4 +68,31 @@ input[type="text"] {
   border: solid grey 1.5px;
   border-radius: 0 20px 20px 0;
   padding: 8px;
+}
+
+/*------------ videos ------------*/
+.horizontal-flex {
+  display: flex;
+  flex-direction: row;
+}
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+video {
+  border: solid black 2px;
+  height: 235px;
+}
+
+.picture {
+  border: solid black 2px;
+  border-radius: 50px;
+}
+
+.fila-videos {
+  margin-left: 7%;
+  margin-right: 7%;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
