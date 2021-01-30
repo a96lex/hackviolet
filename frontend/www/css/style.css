@@ -1,0 +1,55 @@
+h1 {
+  font-family: Work Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 25px;
+  text-align: center;
+  padding-top: 10vh;
+}
+header {
+  padding: 2vh;
+}
+
+.menu {
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  padding: 0 1vw;
+}
+#menu {
+  float: right;
+}
+
+/*------------ search box ------------*/
+.search {
+  display: flex;
+  flex-direction: row;
+  width: 33vw;
+  margin-top: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+input[type="text"] {
+  float: left;
+  width: 25vw;
+  height: 100%;
+  padding: 7px 7px 7px 13px; /*---arriba dcha abajo izqda.---*/
+  border: solid grey 1.5px;
+  border-radius: 20px 0 0 20px;
+  font-family: Noto Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+#icon {
+  width: 2vw;
+  height: auto;
+  float: left;
+  border: solid grey 1.5px;
+  border-radius: 0 20px 20px 0;
+  padding: 8px;
+}
