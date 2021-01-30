@@ -1,13 +1,58 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Hello, world!</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <meta charset="UTF-8" />
+    <title>genderhack</title>
+    <link href="css/settings.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+
+    <!--noto sans regular-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <!--work sans bold-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
-    <h1>Hello, world!</h1>
-    <p>
-      This is a simple static HTML file that will be served from Google App
-      Engine.
-    </p>
+    <!--menú-->
+    <header>
+      <a href="index.html" target="blank"
+        ><img src="./img/" alt="genderhack"
+      /></a>
+      <div id="menu">
+        <a href="purpose.html" class="menu"> purpose </a>
+        <a href="howitworks.html" class="menu"> how it works </a>
+      </div>
+    </header>
+
+    <!--introducción-->
+    <h1>
+      Welcome to genderhack, an intelligent searcher<br />
+      that only provides content from women creators.
+    </h1>
+
+    <!--search bar-->
+    <div class="search">
+      <input type="text" placeholder="Search" style="flex-grow: 1" />
+      <div id="icon" type="submit">
+        <img src="./assets/search.svg" alt="genderhack" />
+      </div>
+    </div>
+
+    <!--fila videos-->
+    <div class="horizontal-flex">
+      <div class="vertical-flex">
+        <video></video>
+        <div></div>
+      </div>
+    </div>
   </body>
 </html>
