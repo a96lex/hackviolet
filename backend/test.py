@@ -1,12 +1,14 @@
 from youtubesearchpython import VideosSearch
 
-search = VideosSearch("Getting Started with Cloud SQL for MySQL")
+search = VideosSearch("python")
 
 response = search.result()["result"]
 
 while len(response) < 10:
     search.next()
     response += search.result()["result"]
+
+print(len(response))
 
 # id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail
 print((response[0]["link"]))
