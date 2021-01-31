@@ -1,6 +1,6 @@
 from youtubesearchpython import VideosSearch
 
-search = VideosSearch("Fortran")
+search = VideosSearch("Getting Started with Cloud SQL for MySQL")
 
 response = search.result()["result"]
 
@@ -8,4 +8,4 @@ while len(response) < 10:
     search.next()
     response += search.result()["result"]
 
-print(response[1]["link"])
+print(response[0])
