@@ -17,8 +17,7 @@ def isInDatabase(search):
         db=db_accepted_videos,
     )
     with cnx.cursor() as cursor:
-        sql = "CREATE TABLE `videos` ( `url` varchar(255) NOT NULL AUTO_INCREMENT,`title` varchar(255) COLLATE utf8_bin NOT NULL,`channel` varchar(255) COLLATE utf8_bin NOT NULL,`search` varchar(255) COLLATE utf8_bin NOT NULL,PRIMARY KEY (`url`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin AUTO_INCREMENT=1 ;"
-        cursor.execute("SELECT id FROM videos WHERE search = " + str(search))
+        cursor.execute("SELECT * FROM accepted_videos WHERE search = " + str(search))
         data = cursor.fetchone()
         if data is None:
             return False
