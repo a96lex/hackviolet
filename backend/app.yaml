@@ -3,6 +3,6 @@ runtime: python37
 env_variables:
   DB_USERNAME: dbmanager
   DB_PASS: 1234
-  ACCEPTED_VIDEOS: accepted-videos
+  ACCEPTED_VIDEOS: accepted_videos
   CONNECTION_NAME: hackviolet-api:europe-west1:woman-videos
   HOST: 91.116.56.96
