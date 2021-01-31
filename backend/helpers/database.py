@@ -37,9 +37,7 @@ def getFromDatabase(search):
     )
     with cnx.cursor() as cursor:
         cursor.execute(
-            "to_json(SELECT * FROM accepted_videos WHERE search = '{}')".format(
-                str(search)
-            )
+            "SELECT * FROM accepted_videos WHERE search = '{}'".format(str(search))
         )
         data = cursor.fetchall()
         if data is None:
