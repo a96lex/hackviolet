@@ -73,7 +73,7 @@ def addToDb(video, search):
         cursor.execute(
             "insert into accepted_videos(id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail) values({},{},{},{},{},{},{});".format(
                 v_id,
-                views,
+                int(views[:-6].replace(",", "")),
                 search,
                 video_thumbnail,
                 duration,
