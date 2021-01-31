@@ -1,6 +1,7 @@
 import os
 import pymysql
 import json
+from .parser import parseVideo
 
 db_username = os.environ.get("DB_USERNAME")
 db_pass = os.environ.get("DB_PASS")
@@ -56,14 +57,7 @@ def getExistingTags():
 
 
 def addToDb(video, search):
-    v_id = video["link"]
-    title = video["title"]
-    views = video["viewCount"]["text"]
-    search = str(search)
-    video_thumbnail = video["thumbnails"][0]["url"]
-    duration = video["duration"]
-    channel = video["channel"]["name"]
-    channel_thumbnail = video["channel"]["thumbnails"][0]["url"]
+    videoData = parseVideo(video)
 
     unix_socket = "/cloudsql/{}".format(db_connection_name)
 
@@ -74,20 +68,10 @@ def addToDb(video, search):
         db=db_accepted_videos,
     )
 
-    print(cnx)
-
     sql = "insert into accepted_videos(id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail) values('{}',{},'{}','{}','{}','{}','{}','{}');".format(
-        v_id,
-        int(views[:-6].replace(",", "")),
-        title,
-        search,
-        video_thumbnail,
-        duration,
-        channel,
-        channel_thumbnail,
+        video
     )
 
     with cnx.cursor() as cursor:
-        print(cursor)
         cursor.execute(sql)
         cnx.commit()
