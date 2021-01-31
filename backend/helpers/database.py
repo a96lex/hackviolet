@@ -1,5 +1,6 @@
 import os
 import pymysql
+import json
 
 db_username = os.environ.get("DB_USERNAME")
 db_pass = os.environ.get("DB_PASS")
@@ -43,7 +44,7 @@ def getFromDatabase(search):
         if data is None:
             return "there is nothing here"
         else:
-            return data
+            return json.dumps(data)
 
 
 def getExistingTags():
