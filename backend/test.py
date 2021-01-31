@@ -11,6 +11,7 @@ while len(response) < 10:
 # id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail
 print(type(response[0]["link"]))
 print(type(response[0]["viewCount"]["text"]))
+print((response[0]["title"]))
 search = search
 print(type(response[0]["thumbnails"][0]["url"]))
 print(type(response[0]["duration"]))

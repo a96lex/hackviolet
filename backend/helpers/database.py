@@ -56,6 +56,7 @@ def getExistingTags():
 
 def addToDb(video, search):
     v_id = video["link"]
+    title = video["title"]
     views = video["viewCount"]["text"]
     search = str(search)
     video_thumbnail = video["thumbnails"][0]["url"]
@@ -74,6 +75,7 @@ def addToDb(video, search):
             "insert into accepted_videos(id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail) values('{}','{}','{}','{}','{}','{}','{}');".format(
                 v_id,
                 int(views[:-6].replace(",", "")),
+                title,
                 search,
                 video_thumbnail,
                 duration,
