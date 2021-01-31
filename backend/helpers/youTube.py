@@ -4,6 +4,7 @@ from .database import addToDb
 
 def getYoutubeVideos(query):
     search = VideosSearch(query)
+    print("search", search)
 
     response = search.result()["result"]
 
@@ -14,7 +15,7 @@ def getYoutubeVideos(query):
         response += search.result()["result"]
         count += 1
 
-    response = response[:1]
+    response = response[0]
 
     for video in response:
         # if isFemale(video["link"]):
