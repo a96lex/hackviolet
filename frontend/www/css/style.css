@@ -7,13 +7,17 @@ h1 {
   line-height: 25px;
   text-align: center;
   padding-top: 10vh;
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
 }
-h2 {
+h2,
+h3 {
   font-family: Noto Sans;
   font-style: normal;
   font-weight: normal;
   font-size: 17px;
-  line-height: 129.3%;
+  line-height: 140%;
 }
 
 p {
@@ -47,9 +51,9 @@ header {
   flex-direction: row;
   width: 33vw;
   margin: 5vh auto 9vh auto;
-
+  background: rgba(251, 174, 23, 0.3);
   flex: 1 1 300px;
-  border: solid grey 1.5px;
+
   border-radius: 20px;
   overflow: hidden;
   font-family: Noto Sans;
@@ -61,6 +65,7 @@ header {
   padding: 0 8px;
 }
 .searchBox {
+  background: rgba(251, 174, 23, 0);
   border: 0;
   padding: 0.5rem 0.5rem 0.5rem 0;
   flex: 1;
@@ -77,12 +82,11 @@ header {
 }
 
 video {
-  border: solid black 2px;
   height: 235px;
 }
 
 .picture {
-  border: solid black 2px;
+  background: rgb(251, 174, 23);
   border-radius: 50px;
 }
 
@@ -91,4 +95,49 @@ video {
   margin-right: 7%;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+/*------------ purpose ------------*/
+h3 {
+  text-align: left;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+sup {
+  vertical-align: super;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 1294px) {
+  h1 {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 895px) {
+  .fila-videos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 533px) {
+  h1 {
+    width: 90%;
+  }
+  .searchContainer {
+    width: 80%;
+  }
+  .fila-videos {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .responsive-box {
+    width: 330px;
+  }
+  video {
+    height: auto;
+  }
 }
