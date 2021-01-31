@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from helpers.database import isInDatabase, getFromDatabase
+from helpers.database import isInDatabase, getFromDatabase, getExistingTags
 from helpers.youTube import getYoutubeVideos
 
 app = Flask(__name__)

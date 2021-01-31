@@ -1,7 +1,8 @@
-runtime: python27
-api_version: 1
-threadsafe: true
+runtime: python37
 
-handlers:
-  - url: /.*
-    script: main.app
+env_variables:
+  DB_USERNAME: dbmanager
+  DB_PASS: 1234
+  ACCEPTED_VIDEOS: accepted-videos
+  CONNEXION_NAME: hackviolet-api:europe-west1:woman-videos
+  HOST: 104.155.42.253

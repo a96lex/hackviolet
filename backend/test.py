@@ -4,8 +4,8 @@ search = VideosSearch("Fortran")
 
 response = search.result()["result"]
 
-while len(response) < 100:
+while len(response) < 10:
     search.next()
     response += search.result()["result"]
 
-print(len(response[:100]))
+print(response[1]["link"])
