@@ -8,4 +8,11 @@ while len(response) < 10:
     search.next()
     response += search.result()["result"]
 
-print(response[0])
+# id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail
+print(type(response[0]["link"]))
+print(type(response[0]["viewCount"]["text"]))
+search = search
+print(type(response[0]["thumbnails"][0]["url"]))
+print(type(response[0]["duration"]))
+print(type(response[0]["channel"]["name"]))
+print(type(response[0]["channel"]["thumbnails"][0]["url"]))
