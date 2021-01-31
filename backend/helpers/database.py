@@ -17,7 +17,9 @@ def isInDatabase(search):
         db=db_accepted_videos,
     )
     with cnx.cursor() as cursor:
-        cursor.execute("SELECT * FROM accepted_videos WHERE search = " + str(search))
+        cursor.execute(
+            "SELECT * FROM accepted_videos WHERE search = '" + str(search) + "'"
+        )
         data = cursor.fetchone()
         if data is None:
             return False
