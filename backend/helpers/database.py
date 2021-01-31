@@ -66,12 +66,15 @@ def addToDb(video, search):
     channel_thumbnail = video["channel"]["thumbnails"][0]["url"]
 
     unix_socket = "/cloudsql/{}".format(db_connection_name)
+
     cnx = pymysql.connect(
         user=db_username,
         password=db_pass,
         unix_socket=unix_socket,
         db=db_accepted_videos,
     )
+
+    print(cnx)
 
     sql = "insert into accepted_videos(id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail) values('{}',{},'{}','{}','{}','{}','{}','{}');".format(
         v_id,
@@ -84,7 +87,6 @@ def addToDb(video, search):
         channel_thumbnail,
     )
 
-    print(sql)
-
     with cnx.cursor() as cursor:
+        print(cursor)
         cursor.execute(sql)
