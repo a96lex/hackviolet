@@ -1,5 +1,5 @@
 from youtubesearchpython import VideosSearch
-from database import addToDb
+from .database import addToDb
 
 
 def getYoutubeVideos(search):
