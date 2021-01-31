@@ -71,7 +71,7 @@ def addToDb(video, search):
     )
     with cnx.cursor() as cursor:
         cursor.execute(
-            "insert into accepted_videos(id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail) values({},{},{},{},{},{},{});".format(
+            "insert into accepted_videos(id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail) values('{}','{}','{}','{}','{}','{}','{}');".format(
                 v_id,
                 int(views[:-6].replace(",", "")),
                 search,
