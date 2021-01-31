@@ -13,8 +13,8 @@ def search():
     if isInDatabase(search):
         response = getFromDatabase(search)
     else:
-        getYoutubeVideos(search)
-        response = getExistingTags()
+        # getYoutubeVideos(search)
+        response = {str(search): "is not in the db"}
 
     return response
 

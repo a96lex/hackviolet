@@ -28,7 +28,7 @@ def isInDatabase(search):
 
 
 def getFromDatabase(search):
-    return {str(search): "something"}
+    return {str(search): "is in the db"}
 
 
 def getExistingTags():
