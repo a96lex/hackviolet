@@ -18,7 +18,7 @@ def isInDatabase(search):
     )
     with cnx.cursor() as cursor:
         cursor.execute(
-            "SELECT * FROM accepted_videos WHERE search = '" + str(search) + "'"
+            "SELECT * FROM accepted_videos WHERE search = '{}'".format(str(search))
         )
         data = cursor.fetchone()
         if data is None:
@@ -28,7 +28,24 @@ def isInDatabase(search):
 
 
 def getFromDatabase(search):
-    return {str(search): "is in the db"}
+    unix_socket = "/cloudsql/{}".format(db_connection_name)
+    cnx = pymysql.connect(
+        user=db_username,
+        password=db_pass,
+        unix_socket=unix_socket,
+        db=db_accepted_videos,
+    )
+    with cnx.cursor() as cursor:
+        cursor.execute(
+            "to_json(SELECT * FROM accepted_videos WHERE search = '{}')".format(
+                str(search)
+            )
+        )
+        data = cursor.fetchall()
+        if data is None:
+            return "there is nothing here"
+        else:
+            return data
 
 
 def getExistingTags():
@@ -36,3 +53,32 @@ def getExistingTags():
     while len(tags) < 10:
         tags.append("ii")
     return {"tags": tags}
+
+
+def addToDb(video, search):
+    v_id = video["link"]
+    views = video["viewCount"]["text"]
+    search = str(search)
+    video_thumbnail = video["thumbnails"][0]["url"]
+    duration = video["duration"]
+    channel = video["channel"]["name"]
+    channel_thumbnail = video["channel"]["thumbnails"][0]["url"]
+    unix_socket = "/cloudsql/{}".format(db_connection_name)
+    cnx = pymysql.connect(
+        user=db_username,
+        password=db_pass,
+        unix_socket=unix_socket,
+        db=db_accepted_videos,
+    )
+    with cnx.cursor() as cursor:
+        cursor.execute(
+            "insert into accepted_videos(id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail) values({},{},{},{},{},{},{});".format(
+                v_id,
+                views,
+                search,
+                video_thumbnail,
+                duration,
+                channel,
+                channel_thumbnail,
+            )
+        )
