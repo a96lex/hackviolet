@@ -41,6 +41,7 @@ def getFromDatabase(search):
             "SELECT * FROM accepted_videos WHERE search = '{}'".format(str(search))
         )
         data = cursor.fetchall()
+
         if data is None:
             return "there is nothing here"
         else:
@@ -63,6 +64,7 @@ def addToDb(video, search):
     duration = video["duration"]
     channel = video["channel"]["name"]
     channel_thumbnail = video["channel"]["thumbnails"][0]["url"]
+
     unix_socket = "/cloudsql/{}".format(db_connection_name)
     cnx = pymysql.connect(
         user=db_username,
@@ -70,16 +72,19 @@ def addToDb(video, search):
         unix_socket=unix_socket,
         db=db_accepted_videos,
     )
+
+    sql = "insert into accepted_videos(id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail) values('{}',{},'{}','{}','{}','{}','{}','{}');".format(
+        v_id,
+        int(views[:-6].replace(",", "")),
+        title,
+        search,
+        video_thumbnail,
+        duration,
+        channel,
+        channel_thumbnail,
+    )
+
+    print(sql)
+
     with cnx.cursor() as cursor:
-        cursor.execute(
-            "insert into accepted_videos(id,views,title,search,video_thumbnail,duration,channel,channel_thumbnail) values('{}','{}','{}','{}','{}','{}','{}','{}');".format(
-                v_id,
-                int(views[:-6].replace(",", "")),
-                title,
-                search,
-                video_thumbnail,
-                duration,
-                channel,
-                channel_thumbnail,
-            )
-        )
+        cursor.execute(sql)
