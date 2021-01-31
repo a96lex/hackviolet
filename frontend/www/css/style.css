@@ -17,7 +17,7 @@ h3 {
   font-style: normal;
   font-weight: normal;
   font-size: 17px;
-  line-height: 140%;
+  line-height: 150%;
 }
 
 p {
@@ -110,6 +110,31 @@ sup {
   font-size: 13px;
 }
 
+.manvswoman {
+  margin-top: 5vh;
+  justify-content: center;
+}
+
+#man {
+  background-image: url("../assets/man.jpg");
+  background-size: cover;
+}
+#man:hover {
+  cursor: url("../assets/cursorS.png"), pointer;
+}
+#woman {
+  background-image: url("../assets/woman.jpg");
+  background-size: cover;
+}
+#woman:hover {
+  cursor: url("../assets/cursorL.png"), pointer;
+  background-image: url("../assets/womanL.jpg");
+  background-size: cover;
+}
+#tap {
+  display: none;
+}
+
 @media screen and (max-width: 1294px) {
   h1 {
     width: 60%;
@@ -118,6 +143,13 @@ sup {
 
 @media screen and (max-width: 895px) {
   .fila-videos {
+    flex-direction: column;
+    align-items: center;
+  }
+  h3 {
+    width: 80%;
+  }
+  .manvswoman {
     flex-direction: column;
     align-items: center;
   }
@@ -139,5 +171,20 @@ sup {
   }
   video {
     height: auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  #man:hover {
+    background-image: url("../assets/man_mobile.jpg");
+    background-size: cover;
+  }
+
+  #woman:hover {
+    background-image: url("../assets/womanL_mobile.jpg");
+    background-size: cover;
+  }
+  #tap {
+    display: block;
+    text-align: center;
   }
 }
