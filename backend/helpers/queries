@@ -1,0 +1,11 @@
+create table accepted_videos(
+    id VARCHAR(500) NOT NULL AUTO_INCREMENT,
+    views INT NOT NULL,
+    title VARCHAR(500) NOT NULL,
+    search VARCHAR(500) NOT NULL,
+    thumbnail VARCHAR(500) NOT NULL,
+    duration VARCHAR(500) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+insert into accepted_videos(id,views,title,search,thumbnail,duration) values("diep.io",150,"test","test","img.url","20:20 min");
