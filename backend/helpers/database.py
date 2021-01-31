@@ -90,3 +90,4 @@ def addToDb(video, search):
     with cnx.cursor() as cursor:
         print(cursor)
         cursor.execute(sql)
+        cnx.commit()
