@@ -18,7 +18,7 @@ def getYoutubeVideos(search):
 
     for video in response:
         # if isFemale(video["link"]):
-        addToDb(video)
+        addToDb(video, search)
         # else:
         #     continue
     return None
